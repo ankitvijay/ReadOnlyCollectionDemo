@@ -2,15 +2,6 @@
 
 namespace ReadOnlyCollectionDemo.Version2
 {
-    public class Order : OrderBase
-    {
-        public Order()
-        {
-        }
-
-        public new IEnumerable<OrderItem> OrderItems => base.OrderItems;
-    }
-
     public class OrderBase
     {
         private ICollection<OrderItem> _orderItems;
@@ -36,4 +27,15 @@ namespace ReadOnlyCollectionDemo.Version2
             _orderItems.Add(orderItem);
         }
     }
+
+    public class Order : OrderBase
+    {
+        public Order()
+        {
+        }
+
+        public new IEnumerable<OrderItem> OrderItems => base.OrderItems;
+    }
+
+    
 }

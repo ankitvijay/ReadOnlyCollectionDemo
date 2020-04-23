@@ -15,7 +15,7 @@ namespace ReadOnlyCollectionDemo.Version3
         public IReadOnlyCollection<OrderItem> OrderItems
         {
             get => _orderItems.ToImmutableList();
-            set => _orderItems = value?.ToList() ?? new List<OrderItem>();
+            private set => _orderItems = value?.ToList() ?? new List<OrderItem>();
         }
 
         public void AddOrderItem(OrderItem orderItem)
