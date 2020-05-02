@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using Demo.Helper;
 
-namespace ReadOnlyCollectionDemo.Version2
+namespace Demo.Version2
 {
     public class OrderBase
     {

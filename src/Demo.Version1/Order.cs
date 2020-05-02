@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Linq;
+using Demo.Helper;
 
-namespace ReadOnlyCollectionDemo.Version3
+// ReSharper disable UnusedMember.Local
+namespace Demo.Version1
 {
     public class Order
     {
-        private IList<OrderItem> _orderItems;
+        private ICollection<OrderItem> _orderItems;
         public Order()
         {
             _orderItems = new List<OrderItem>();
@@ -14,8 +14,8 @@ namespace ReadOnlyCollectionDemo.Version3
 
         public IReadOnlyCollection<OrderItem> OrderItems
         {
-            get => _orderItems.ToImmutableList();
-            private set => _orderItems = value?.ToList() ?? new List<OrderItem>();
+            get => (IReadOnlyCollection<OrderItem>)_orderItems;
+            private set => _orderItems = (ICollection<OrderItem>)value;
         }
 
         public void AddOrderItem(OrderItem orderItem)

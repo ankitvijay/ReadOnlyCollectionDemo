@@ -1,5 +1,5 @@
 ﻿// ReSharper disable AutoPropertyCanBeMadeGetOnly.Local
-namespace ReadOnlyCollectionDemo
+namespace Demo.Helper
 {
     public class OrderItem
     {

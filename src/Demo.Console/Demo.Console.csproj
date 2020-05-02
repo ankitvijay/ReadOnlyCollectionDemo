@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Demo.Helper\Demo.Helper.csproj" />
+    <ProjectReference Include="..\Demo.Version1\Demo.Version1.csproj" />
+    <ProjectReference Include="..\Demo.Version2\Demo.Version2.csproj" />
+    <ProjectReference Include="..\Demo.Version3\Demo.Version3.csproj" />
+    <ProjectReference Include="..\Demo.Version4\Demo.Version4.csproj" />
+    <ProjectReference Include="..\Demo.Version5\Demo.Version5.csproj" />
+  </ItemGroup>
+
+</Project>
