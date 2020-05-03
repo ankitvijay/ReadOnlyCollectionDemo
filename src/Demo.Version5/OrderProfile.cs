@@ -11,7 +11,6 @@ namespace Demo.Version5
         public OrderProfile()
         {
             CreateMap<Order, OrderDto>()
-                // .ForMember(c => c.OrderItems, p => p.ConvertUsing<ImmutableHashSet<OrderItem>>(new HashMapConverter()))
                 .ReverseMap();
                 
 

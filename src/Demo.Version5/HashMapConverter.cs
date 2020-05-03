@@ -1,23 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Collections.Immutable;
 using AutoMapper;
-using Demo.Helper;
 
 namespace Demo.Version5
 {
-    internal class HashMapConverter : IValueConverter<ImmutableHashSet<OrderItem>, ImmutableHashSet<OrderItem>>
+    internal class HashMapConverter<TCollection, TImmutableHashSet> 
+        : ITypeConverter<ICollection<TCollection>, ImmutableHashSet<TImmutableHashSet>>
     {
-        public ImmutableHashSet<OrderItem> Convert(ICollection<OrderItemDto> sourceMember, ResolutionContext context)
+        public ImmutableHashSet< TImmutableHashSet> Convert(
+            ICollection<TCollection> source,
+            ImmutableHashSet< TImmutableHashSet> destination,
+            ResolutionContext context)
         {
-            var has = ImmutableHashSet.Create<OrderItem>();
-            foreach (var item in sourceMember)
-            {
-                has.Add(new OrderItem(item.OrderId, item.OrderName));
-            }
-
-            return has;
+            return ImmutableHashSet<TImmutableHashSet>.Empty;
         }
-
-        public ImmutableHashSet<OrderItem> Convert(ImmutableHashSet<OrderItem> sourceMember, ResolutionContext context) => throw new System.NotImplementedException();
     }
 }

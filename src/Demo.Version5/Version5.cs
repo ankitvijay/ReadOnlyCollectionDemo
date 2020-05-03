@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using AutoMapper;
 using Demo.Helper;
@@ -36,6 +37,7 @@ namespace Demo.Version5
             var mapper = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile(new OrderProfile());
+                cfg.CreateMap(typeof(ICollection<>), typeof(ImmutableHashSet<>)).ConvertUsing(typeof(HashMapConverter<,>));
             }).CreateMapper();
 
             var order = new Order();
