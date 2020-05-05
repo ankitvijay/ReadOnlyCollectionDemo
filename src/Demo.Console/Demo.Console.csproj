@@ -12,6 +12,7 @@
     <ProjectReference Include="..\Demo.Version3\Demo.Version3.csproj" />
     <ProjectReference Include="..\Demo.Version4\Demo.Version4.csproj" />
     <ProjectReference Include="..\Demo.Version5\Demo.Version5.csproj" />
+    <ProjectReference Include="..\Demo.Version6\Demo.Version6.csproj" />
   </ItemGroup>
 
 </Project>
