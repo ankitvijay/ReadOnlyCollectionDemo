@@ -10,11 +10,9 @@ namespace Demo.Version6
     {
         public OrderProfile()
         {
+
             CreateMap<Order, OrderDto>()
-                    //.ForMember(d => d.OrderItems, opt => opt.ConvertUsing(new CollectionConverter<OrderItem, OrderItemDto>()))
-                .ReverseMap()
-                    .ForMember(d => d.OrderItems, opt => opt.ConvertUsing(new HashMapConverter<OrderItemDto, OrderItem>()))
-                .DisableCtorValidation();
+                .ReverseMap();
 
             CreateMap<OrderItem, OrderItemDto>()
                 .ReverseMap();

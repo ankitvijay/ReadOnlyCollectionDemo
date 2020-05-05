@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Linq;
 using AutoMapper;
 using Demo.Helper;
@@ -17,6 +16,22 @@ namespace Demo.Version6
             order.AddOrderItem(new OrderItem(2, "Keyboard"));
 
             Console.WriteLine($"Before Manipulating outside Order Domain: {order.OrderItems.ToList().Count()}");
+
+            var orderItem = new OrderItem(3, "Mouse");
+
+            try
+            {
+                var orderItems = (ICollection<OrderItem>)order.OrderItems;
+                orderItems.Add(orderItem);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            finally
+            {
+                Console.WriteLine($"After Manipulating outside Order Domain: {order.OrderItems.ToList().Count}");
+            }
 
             Map();
 
@@ -49,9 +64,6 @@ namespace Demo.Version6
 
             Console.WriteLine("Mapping OrderDto back to Order");
             var orderMappedBack = mapper.Map<Order>(orderDto);
-
-            var orderItems = order.OrderItems;
-            orderItems.Add(new OrderItem(3, "Mouse"));
         }
     }
 }

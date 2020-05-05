@@ -14,7 +14,7 @@ namespace Demo.Version6
             _orderItems = new HashSet<OrderItem>();
         }
 
-        public ImmutableHashSet<OrderItem> OrderItems
+        public IReadOnlyCollection<OrderItem> OrderItems
         {
             get => _orderItems.ToImmutableHashSet();
             private set => _orderItems = value.ToHashSet();
