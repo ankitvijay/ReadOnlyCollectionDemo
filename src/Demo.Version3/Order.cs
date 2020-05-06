@@ -5,11 +5,11 @@ using Demo.Helper;
 
 namespace Demo.Version3
 {
-    public class OrderBase
+    public class Order
     {
         private List<OrderItem> _orderItems;
 
-        public OrderBase()
+        public Order()
         {
             _orderItems = new List<OrderItem>();
         }
@@ -17,7 +17,7 @@ namespace Demo.Version3
         public IReadOnlyCollection<OrderItem> OrderItems
         {
             get => _orderItems.ToImmutableList();
-            private set => _orderItems = (List<OrderItem>)value;
+            private set => _orderItems = value.ToList();
         }
 
         public void AddOrderItem(OrderItem orderItem)
@@ -30,16 +30,4 @@ namespace Demo.Version3
             _orderItems.Add(orderItem);
         }
     }
-
-    public class Order : OrderBase
-    {
-        public Order()
-        {
-
-        }
-
-        public new IEnumerable<OrderItem> OrderItems => base.OrderItems.Cast<OrderItem>();
-    }
-
-
 }
